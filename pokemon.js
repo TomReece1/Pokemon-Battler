@@ -480,6 +480,10 @@ function handleChoiceClick(eventObject) {
   model.p1Pokemon = document
     .getElementById(eventObject.target.id)
     .alt.toLowerCase();
+
+  model.p2Pokemon = document
+    .getElementById("choice" + (Math.floor(Math.random() * 3) + 1))
+    .alt.toLowerCase();
   view.displaySprites();
   view.displayMoves();
   view.displayInfo();
