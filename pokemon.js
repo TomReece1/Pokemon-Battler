@@ -342,6 +342,8 @@ const model = {
       );
     }
 
+    this.applyPP(moveNum);
+
     //After applying damage, check if fainted
     this.applyFaint();
 
@@ -425,6 +427,20 @@ const model = {
     } else {
       view.changeHealth("p1", this.defender.currentHP, this.defender.maxHP);
     }
+  },
+
+  applyPP: function (moveNum) {
+    // if (this.attacker.moveSet[moveNum].movePP > 0) {
+    this.attacker.moveSet[moveNum].movePP--;
+    console.log(this.attacker.moveSet[moveNum].movePP);
+    if (this.p1Turn) {
+      view.changePP(
+        moveNum,
+        this.attacker.moveSet[moveNum].movePP,
+        this.attacker.moveSet[moveNum].moveMaxPP
+      );
+    }
+    // }
   },
 
   applyFaint: function () {
